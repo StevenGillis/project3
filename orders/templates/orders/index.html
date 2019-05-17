@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to my PizzaRia</h1>
+
+
+    <div class="container menu">
+        <form id="order">
+            <h2>Pasta</h2>
+                {% for pasta in Pasta %}
+                    <li> {{pasta.name}}, {{pasta.price}} <button>Add</button></li>
+                {% endfor %}
+            <h2>Salad</h2>
+                {% for salad in Salad %}
+                    <li> {{salad.name}}, {{salad.price}} <button>Add</button></li>
+                {% endfor %}
+        </form>
+    </div>
+</body>
+</html>
