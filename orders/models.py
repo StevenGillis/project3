@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+
+### Food related classes
 class Dish(models.Model):
     name = models.CharField(max_length=64)
     price = models.CharField(max_length=64)
@@ -36,3 +38,5 @@ class Topping(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.pizza})"
+
+### Order related classes

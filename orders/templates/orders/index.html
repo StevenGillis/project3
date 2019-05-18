@@ -6,6 +6,7 @@
 
 {% block body %}
     <h1>Welcome to my PizzaRia</h1>
+    <h4>Logged in as: {{user}}</h4>
     <div class="body">
         <div class="left">
             <div class="containermenu">
@@ -34,6 +35,7 @@
                 <button id="myBtn" class="buybutton">buy</button>
             </div>
         </div>
+    <div><a href="{% url 'logout' %}">Logout</a></div>
     </div>
     <!-- Modal for confirmation -->
     <div id="myModal" class="modal">
@@ -50,6 +52,8 @@
             <button id="confirm">confirm</button>
       </div>
     </div>
+
+
 
 
 
