@@ -25,6 +25,11 @@
             <div class="shoppingcart">
                 <form id="buycart">
                     <h1>Your shopping cart</h1>
+                        <ul id="cartitemlist">
+                            {% for item in cartitemlist %}
+                                <li>{{item}}</li>
+                            {% endfor %}
+                        </ul>
                     <button class="buybutton">buy</button>
                 </form>
             </div>
