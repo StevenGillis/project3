@@ -44,4 +44,16 @@ var cartlist = [];
             modal.style.display = "none";
           }
         }
+     // When modal button is pressed
+    /*
+    document.querySelector('#confirmorder').onsubmit = () => {
+        function Order(time, totalamount, buyer) {
+            this.time = "test";
+            this.totalamount = "test"
+            this.buyer = "test"
+
+            }
+        console.log("test")
+    }
+    */
 });

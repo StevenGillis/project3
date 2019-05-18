@@ -40,3 +40,18 @@ class Topping(models.Model):
         return f"{self.name} ({self.pizza})"
 
 ### Order related classes
+
+class Buyer(models.Model):
+    name = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f"{self.name})"
+
+#class Order(models.Model):
+   # time = models.CharField(max_length=64, default="now")
+   # totalamount = models.CharField(max_length=64, default=0)
+    #buyer_id = models.ForeignKey(Buyer, default=1, on_delete=models.CASCADE, related_name="boughtby")
+
+   # def __str__(self):
+        #return f"{self.time})"
+
