@@ -12,7 +12,7 @@
                 <form id="order">
                     <h2>Pasta</h2>
                         {% for pasta in Pasta %}
-                            <li> {{pasta.name}}, {{pasta.price}} <button>Add</button></li>
+                            <li id=pasta.name> {{pasta.name}}, {{pasta.price}} <button>Add</button></li>
                         {% endfor %}
                     <h2>Salad</h2>
                         {% for salad in Salad %}
@@ -24,15 +24,34 @@
         <div class="right">
             <div class="shoppingcart">
                 <form id="buycart">
-                    <h1>Your shopping cart</h1>
+                    <h2>Your shopping cart</h2>
                         <ul id="cartitemlist">
                             {% for item in cartitemlist %}
                                 <li>{{item}}</li>
                             {% endfor %}
                         </ul>
-                    <button class="buybutton">buy</button>
                 </form>
+                <button id="myBtn" class="buybutton">buy</button>
             </div>
         </div>
     </div>
+    <!-- Modal for confirmation -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+            <p>Please confirm your purchase</p>
+            <ul id="itemoverviewconfirm">
+                {% for item in itemoverviewconfirm %}
+                    <li>{{item}}</li>
+                {% endfor %}
+            </ul>
+            <button id="confirm">confirm</button>
+      </div>
+    </div>
+
+
+
+
 {% endblock %}

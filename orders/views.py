@@ -8,3 +8,6 @@ def index(request):
         "Salad": Salad.objects.all(),
     }
     return render(request, "orders/index.html", context)
+
+#def index(request):
+ #   return 200
