@@ -1,24 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+{% extends "orders/base.html" %}
+
+{% block title %}
+    Pizza
+{% endblock %}
+
+{% block body %}
     <h1>Welcome to my PizzaRia</h1>
-
-
-    <div class="container menu">
-        <form id="order">
-            <h2>Pasta</h2>
-                {% for pasta in Pasta %}
-                    <li> {{pasta.name}}, {{pasta.price}} <button>Add</button></li>
-                {% endfor %}
-            <h2>Salad</h2>
-                {% for salad in Salad %}
-                    <li> {{salad.name}}, {{salad.price}} <button>Add</button></li>
-                {% endfor %}
-        </form>
+    <div class="body">
+        <div class="left">
+            <div class="containermenu">
+                <form id="order">
+                    <h2>Pasta</h2>
+                        {% for pasta in Pasta %}
+                            <li> {{pasta.name}}, {{pasta.price}} <button>Add</button></li>
+                        {% endfor %}
+                    <h2>Salad</h2>
+                        {% for salad in Salad %}
+                            <li> {{salad.name}}, {{salad.price}} <button>Add</button></li>
+                        {% endfor %}
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="shoppingcart">
+                <form id="buycart">
+                    <h1>Your shopping cart</h1>
+                    <button class="buybutton">buy</button>
+                </form>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+{% endblock %}
