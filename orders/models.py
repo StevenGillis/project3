@@ -1,7 +1,22 @@
 from django.db import models
 
 # Create your models here.
+SIZES = (
+    ("S", "Small"),
+    ("L", "Large")
+)
 
+TOPPINGS = (
+    ('one', 'One'),
+    ('two', 'two'),
+    ('three', 'three'),
+    ('Cheese', 'Cheese')
+)
+
+STYLES = (
+    ('R', 'Regular'),
+    ('S', 'Sicilian')
+)
 
 ### Food related classes
 class Dish(models.Model):
@@ -28,15 +43,16 @@ class Salad(Dish):
 
 class Pizza(Dish):
     foodtype = "Pizza"
-
+    style = models.CharField(max_length=10, choices=STYLES)
+    size = models.CharField(max_length=10, choices=SIZES)
+    toppings = models.CharField(max_length=10, choices=TOPPINGS)
     def __str__(self):
-        return f"{self.foodtype})"
+        return f"{self.foodtype} {self.style} {self.size} {self.toppings})"
 
 class Topping(models.Model):
     name = models.CharField(max_length=64)
-    pizza = models.ManyToManyField(Pizza, blank=True, related_name="toppings")
 
     def __str__(self):
-        return f"{self.name} ({self.pizza})"
+        return f"{self.name})"
 
 ### Order related classes
