@@ -1,17 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 var cartlist = [];
+var totalamount = 0;
     //when users wants to add menu item to cart
-    document.querySelector('#order').onsubmit = () => {
+    document.querySelectorAll('button', ).forEach(button => {
+        button.onclick = () => {
+            //To do pick proper item
+            var listitem = button.dataset.id;
 
-        //To do pick proper item
-        var listitem = "pizza";
-        cartlist.push(listitem);
-        console.log(cartlist);
-        const li = document.createElement('li');
-        li.innerHTML = listitem;
-        document.querySelector('#cartitemlist').append(li);
-        return false;
-    };
+            cartlist.push(listitem);
+            console.log(cartlist);
+            const li = document.createElement('li');
+            li.innerHTML = listitem;
+            document.querySelector('#cartitemlist').append(li);
+            //Update amount
+            //totalamount = button.dataset.price;
+            //document.querySelector('#totalamount') = totalamount;
+            return false;
+            }
+    });
     // Get the modal
         var modal = document.getElementById("myModal");
 
@@ -24,9 +30,11 @@ var cartlist = [];
         // When the user clicks on the button, open the modal and show requested items
         btn.onclick = function() {
             modal.style.display = "block";
-            const li = document.createElement('li');
-            li.innerHTML = cartlist;
-            document.querySelector('#itemoverviewconfirm').append(li);
+            //localStorage.cartlist = cartlist;
+            //const li = document.createElement('li');
+            //li.innerHTML = cartlist;
+            //document.querySelector('#itemoverviewconfirm').append(li);
+            document.getElementById("cartlist").innerHTML = cartlist;
         }
 
 

@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
-from orders.models import (Pasta, Salad)
+from orders.models import (Pasta, Salad, Pizza)
 from django.urls import reverse
 
 # Create your views here.
@@ -12,6 +12,7 @@ def index(request):
         "user": request.user,
         "Pasta": Pasta.objects.all(),
         "Salad": Salad.objects.all(),
+        "Pizza": Pizza.objects.all(),
     }
     return render(request, "orders/index.html", context)
 
