@@ -13,15 +13,15 @@
                 <form id="order">
                     <h2>Pasta</h2>
                         {% for pasta in Pasta %}
-                            <li id=pasta.name> {{pasta.name}}, {{pasta.price}} <button class="addbutton" data-id={{pasta.id}} data-price={{pasta.price}}>Add</button></li>
+                            <li id=pasta.name> {{pasta.name}}, {{pasta.price}} <button class="addbutton" data-id={{pasta.id}} data-price={{pasta.price}} data-name="{{pasta.name}}">Add</button></li>
                         {% endfor %}
-                    <h2>Salad</h2>
+                    <h2>Salad {{salad.name}}</h2>
                         {% for salad in Salad %}
-                            <li> {{salad.name}}, {{salad.price}} <button class="addbutton" data-foodid={{salad.id}} data-price={{salad.price}}>Add</button></li>
+                            <li> {{salad.name}}, {{salad.price}} <button class="addbutton" data-id={{salad.id}} data-price={{salad.price}} data-name="{{salad.name}}">Add</button></li>
                         {% endfor %}
                     <h2>Pizza</h2>
                     {% for pizza in Pizza %}
-                            <li> {{pizza.name}},{{pizza.size}},{{pizza.style}}, {{pizza.toppings}} <button class="addbutton" data-foodid={{pizza.id}} data-price={{pizza.price}}>Add</button></li>
+                            <li> {{pizza.name}},{{pizza.size}},{{pizza.style}}, {{pizza.toppings}} <button class="addbutton" data-id={{pizza.id}} data-price={{pizza.price}} data-name="{{pizza.name}}">Add</button></li>
                     {% endfor %}
                     <!-- Fancy option
                     <div id="eachpizza" class="pizzaorder">
@@ -78,7 +78,7 @@
                 <h2>{{itemoverviewconfirm}}</h2>
             </ul>-->
           <h2 id="cartlist"></h2>
-            <button id="confirm" data-foodid="">confirm</button>
+            <div><a href="{% url 'logout' %}">Confirm and Logout</a></div>
       </div>
     </div>
 

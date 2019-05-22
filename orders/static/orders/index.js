@@ -7,12 +7,17 @@ window.localStorage.setItem('totalamount', 0);
         button.onclick = () => {
             //To do pick proper item
             var listitem = button.dataset.id;
+            var itemname = button.dataset.name;
+            var itemprice = button.dataset.price;
 
+            //Create list of all IDs from items added to be added to database later
             cartlist.push(listitem);
-            console.log(cartlist);
+
+            //at to visual of shopping card
             const li = document.createElement('li');
-            li.innerHTML = listitem;
+            li.innerHTML = itemname + " "+ itemprice;
             document.querySelector('#cartitemlist').append(li);
+
             //Update amount
             var totalamount = window.localStorage.getItem('totalamount');
             totalamount = +totalamount + +button.dataset.price;
@@ -37,7 +42,7 @@ window.localStorage.setItem('totalamount', 0);
             //const li = document.createElement('li');
             //li.innerHTML = cartlist;
             //document.querySelector('#itemoverviewconfirm').append(li);
-            document.getElementById("cartlist").innerHTML = cartlist;
+            document.getElementById("cartlist").innerHTML = "Please check out and pay an amount of: " + window.localStorage.getItem('totalamount');
         }
 
 
