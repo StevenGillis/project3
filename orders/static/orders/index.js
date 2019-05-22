@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 var cartlist = [];
-var totalamount = 0;
+//var totalamount = 10;
+window.localStorage.setItem('totalamount', 0);
     //when users wants to add menu item to cart
     document.querySelectorAll('button', ).forEach(button => {
         button.onclick = () => {
@@ -13,8 +14,10 @@ var totalamount = 0;
             li.innerHTML = listitem;
             document.querySelector('#cartitemlist').append(li);
             //Update amount
-            //totalamount = button.dataset.price;
-            //document.querySelector('#totalamount') = totalamount;
+            var totalamount = window.localStorage.getItem('totalamount');
+            totalamount = +totalamount + +button.dataset.price;
+            window.localStorage.setItem('totalamount', totalamount);
+            document.querySelector('#totalamount').innerHTML = totalamount;
             return false;
             }
     });
