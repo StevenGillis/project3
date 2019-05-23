@@ -56,3 +56,14 @@ class Topping(models.Model):
         return f"{self.name})"
 
 ### Order related classes
+class Order(models.Model):
+    username = "testnamevariable"
+    def __str__(self):
+        return f"{self.id})"
+
+
+class OrderItem(models.Model):
+    orderID = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    DishID = models.ForeignKey(Dish, on_delete=models.CASCADE, related_name="orderitems")
+    def __str__(self):
+        return f"{self.id} ({self.orderID})"
