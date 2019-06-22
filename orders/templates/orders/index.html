@@ -21,7 +21,31 @@
                         {% endfor %}
                     <h2>Pizza</h2>
                     {% for pizza in Pizza %}
-                            <li> {{pizza.name}},{{pizza.size}},{{pizza.style}}, {{pizza.toppings}} <button class="addbutton" data-id={{pizza.id}} data-price={{pizza.price}} data-name="{{pizza.name}}">Add</button></li>
+                            <li> {{pizza.name}},{{pizza.size}},{{pizza.style}}, {{pizza.toppings}}
+                                    <select>
+                                    {% for topping in Topping %}
+                                        <option value="{{topping.name}}">{{topping.name}}</option>
+                                    {% endfor %}
+                                    </select>
+                                    <select>
+                                    {% for topping in Topping %}
+                                        <option value="{{topping.name}}">{{topping.name}}</option>
+                                    {% endfor %}
+                                    </select>
+                                     <select>
+                                    {% for topping in Topping %}
+                                        <option value="{{topping.name}}">{{topping.name}}</option>
+                                    {% endfor %}
+                                    </select>
+                                <button class="addbutton" data-id={{pizza.id}} data-price={{pizza.price}} data-name="{{pizza.name}}">Add</button></li>
+                    {% endfor %}
+                    <h2>Subs</h2>
+                    {% for sub in Sub %}
+                            <li> {{sub.name}},{{sub.size}},{{sub.price}} <button class="addbutton" data-id={{sub.id}} data-price={{sub.price}} data-name="{{sub.name}}">Add</button></li>
+                    {% endfor %}
+                    <h2>Dinner Platters</h2>
+                    {% for platter in Platter %}
+                            <li> {{platter.name}},{{platter.size}},{{platter.price}} <button class="addbutton" data-id={{platter.id}} data-price={{platter.price}} data-name="{{platter.name}}">Add</button></li>
                     {% endfor %}
                     <!-- Fancy option
                     <div id="eachpizza" class="pizzaorder">
@@ -78,13 +102,10 @@
                 <h2>{{itemoverviewconfirm}}</h2>
             </ul>-->
           <h2 id="cartlist"></h2>
-            <div><a href="{% url 'checkout' %}">Confirm and Logout</a></div>
+            <div><a href="{% url 'checkout' %}" type="button">Confirm and Logout</a></div>
+            <form method="post" action="{% url 'checkout' %}" class="form-inline">
+                <input type="hidden" id="checkoutlist" value="testvalue">
+            </form>
       </div>
     </div>
-
-
-
-
-
-
 {% endblock %}

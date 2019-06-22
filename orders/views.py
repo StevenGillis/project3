@@ -1,8 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
-from orders.models import (Pasta, Salad, Pizza, Order, OrderItem)
+from orders.models import (Pasta, Salad, Pizza, Order, OrderItem, Platter, Sub, Topping)
 from django.urls import reverse
+from django.utils.datastructures import MultiValueDictKeyError
 
 # Create your views here.
 def index(request):
@@ -13,11 +14,19 @@ def index(request):
         "Pasta": Pasta.objects.all(),
         "Salad": Salad.objects.all(),
         "Pizza": Pizza.objects.all(),
+        "Platter": Platter.objects.all(),
+        "Sub": Sub.objects.all(),
+        "Topping": Topping.objects.all(),
     }
     return render(request, "orders/index.html", context)
 
 def checkout(request):
-    currentorder = Order.objects.create()
+    #try:
+    #testvalue = request.POST.get["checkoutlist", "defaultvalue"]
+    #except MultiValueDictKeyError:
+       # testvalue = False
+    #print(testvalue)
+    currentorder = Order.objects.create(username=request.user.get_username())
     currentdish = Salad.objects.first()
     OrderItem.objects.create(orderID=currentorder,  DishID=currentdish)
     return render(request, "orders/login.html", {"message": "You have ordered succesfully"})

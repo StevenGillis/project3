@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 SIZES = (
-    ("S", "Small"),
-    ("L", "Large")
+    ("Small", "Small"),
+    ("Large", "Large")
 )
 
 TOPPINGS = (
@@ -14,8 +14,8 @@ TOPPINGS = (
 )
 
 STYLES = (
-    ('R', 'Regular'),
-    ('S', 'Sicilian')
+    ('Regular', 'Regular'),
+    ('Sicilian', 'Sicilian')
 )
 
 ### Food related classes
@@ -40,6 +40,19 @@ class Salad(Dish):
     def __str__(self):
         return f"{self.foodtype})"
 
+class Sub(Dish):
+    foodtype = "sub"
+    size = models.CharField(max_length=10, choices=SIZES)
+
+    def __str__(self):
+        return f"{self.foodtype})"
+
+class Platter(Dish):
+    foodtype = "Dinner Platter"
+    size = models.CharField(max_length=10, choices=SIZES)
+
+    def __str__(self):
+        return f"{self.foodtype})"
 
 class Pizza(Dish):
     foodtype = "Pizza"
@@ -57,9 +70,10 @@ class Topping(models.Model):
 
 ### Order related classes
 class Order(models.Model):
-    username = "testnamevariable"
+    username = models.CharField(max_length=64)
+    created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return f"{self.id})"
+        return f"{self.id} {self.username} {self.created_at} )"
 
 
 class OrderItem(models.Model):
